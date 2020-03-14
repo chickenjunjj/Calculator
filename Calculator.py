@@ -44,40 +44,41 @@ class Calculator():
         
 
     def add(self, input1, input2):    
-        print(float(input1) + float(input2))
+        print(input1 + " + " + input2 + " = " + str(float(input1) + float(input2)))
             
     def subtract(self ,input1, input2):
-        print(float(input1) - float(input2))
+        print(input1 + " - " + input2 + " = " + str(float(input1) - float(input2)))
             
     def multiply(self, input1, input2):
-        print(float(input1) * float(input2))
+        print(input1 + " * " + input2 + " = " + str(float(input1) * float(input2)))
             
     def divide(self, input1, input2):
-        print(float(input1) / float(input2))
+        print(input1 + " / " + input2 + " = " + str(float(input1) / float(input2)))
             
     def percent(self, input1, input2):
-        print((str(float(input1) / float(input2) * 100) + "%"))
+        print(input1 + " / " + input2 + " * 100 = " + (str(float(input1) / float(input2) * 100) + "%"))
         
     def grade(self, input1, input2):
         grade = ((float(input1) / float(input2)) * 100)
         if grade >= 90:
-            print("A+")
+            letter_grade = "A+"
         if grade >= 80 and grade < 90:
-            print("A")
+            letter_grade = "A"
         if grade >= 70 and grade < 80:
-            print("B+")
+            letter_grade = "B+"
         if grade >= 60 and grade < 70:
-            print("B")
+            letter_grade = "B"
         if grade >= 50 and grade < 60:
-            print("C+")
+            letter_grade = "C+"
         if grade >= 40 and grade < 50:
-            print("C")
+            letter_grade = "C"
         if grade >= 30 and grade < 40:
-            print("D+")
+            letter_grade = "D+"
         if grade >= 20 and grade < 30:
-            print("D")
+            letter_grade = "D" 
         if grade < 20:
-            print("F")
+            letter_grade = "F"
+        print(str(float(input1) / float(input2)) + " = " + letter_grade)
     
 
 calculator = Calculator()
