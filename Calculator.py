@@ -24,11 +24,14 @@ class Calculator():
         print("[6] letter grade")
         number = input()
         print("")
-        input1 = input("Enter your first number: ")
-        input2 = input("Enter your second number: ")
-        print("")
-        self.switch_case(number, input1, input2)
-        print("")
+        if number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6":
+            print("Invalid command")
+        else:
+            input1 = input("Enter your first number: ")
+            input2 = input("Enter your second number: ")
+            print("")
+            self.switch_case(number, input1, input2)
+            print("")
         self.start()
         
     def switch_case(self, number, input1, input2):
@@ -43,20 +46,29 @@ class Calculator():
         switcher[int(number)](input1, input2)
         
 
-    def add(self, input1, input2):    
-        print(input1 + " + " + input2 + " = " + str(float(input1) + float(input2)))
-            
+    def add(self, input1, input2):
+        result = (float(input1) + float(input2))
+        result = self.round(result)
+        print (input1 + " + " + input2 + " = " + str(result))    
     def subtract(self ,input1, input2):
-        print(input1 + " - " + input2 + " = " + str(float(input1) - float(input2)))
+        result = (float(input1) - float(input2))
+        result = self.round(result)
+        print(input1 + " - " + input2 + " = " + str(result))
             
     def multiply(self, input1, input2):
-        print(input1 + " * " + input2 + " = " + str(float(input1) * float(input2)))
+        result = (float(input1) * float(input2))
+        result = self.round(result)
+        print(input1 + " * " + input2 + " = " + str(result))
             
     def divide(self, input1, input2):
-        print(input1 + " / " + input2 + " = " + str(float(input1) / float(input2)))
+        result = (float(input1) / float(input2))
+        result = self.round(result)
+        print(input1 + " / " + input2 + " = " + str(result))
             
     def percent(self, input1, input2):
-        print(input1 + " / " + input2 + " * 100 = " + (str(float(input1) / float(input2) * 100) + "%"))
+        result = ((float(input1) / float(input2)) * 100)
+        result = self.round(result)
+        print(input1 + " / " + input2 + " * 100 = " + str(result) + "%")
         
     def grade(self, input1, input2):
         grade = ((float(input1) / float(input2)) * 100)
@@ -79,6 +91,11 @@ class Calculator():
         if grade < 20:
             letter_grade = "F"
         print(str(float(input1) / float(input2)) + " = " + letter_grade)
-    
+
+    def round(self, result):
+        if result % 1 == 0 :
+            return int(result)
+        else:
+            return result
 
 calculator = Calculator()
