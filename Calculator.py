@@ -24,7 +24,7 @@ class Calculator():
         print("[6] letter grade")
         number = input()
         print("")
-        if number != "1" and number != "2" and number != "3" and number != "4" and number != "5" and number != "6":
+        if (int(number) % 1) != 0 or int(number) > 6 or int(number) < 1:
             print("Invalid command")
         else:
             input1 = input("Enter your first number: ")
@@ -69,6 +69,7 @@ class Calculator():
         result = ((float(input1) / float(input2)) * 100)
         result = self.round(result)
         print(input1 + " / " + input2 + " * 100 = " + str(result) + "%")
+        return result
         
     def grade(self, input1, input2):
         grade = ((float(input1) / float(input2)) * 100)
@@ -90,7 +91,9 @@ class Calculator():
             letter_grade = "D" 
         if grade < 20:
             letter_grade = "F"
-        print(str(float(input1) / float(input2)) + " = " + letter_grade)
+        percent_result = self.percent(input1, input2)
+        print("")
+        print(str(percent_result) + "%" + " = " + letter_grade)
 
     def round(self, result):
         if result % 1 == 0 :
